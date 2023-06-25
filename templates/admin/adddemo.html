@@ -1,0 +1,52 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3 class="text-center alert alert-info">DEMOFORM</h3>
+            <form action="{% url 'adddemourl' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="container">
+                    {{form.as_p}}
+                   <input type="submit"  class="btn btn alert-success" value="save">
+                </div>
+            </form>
+            <div class="alert-success">
+                {% for message in messages %}
+                    <strong style="color: brown;">{{message}}</strong>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-7 offset-1">
+            <h3 class="text-center alerrt alert-primary">DEMO INFORMATION</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>did</th>
+                        <th>cname</th>
+                        <th>Faculty</th>
+                        <th>EventDate</th>
+                        <th>EventTime</th>
+                        <th>Demotype</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in data %}
+                    <tr>
+                        <td>{{obj.did}}</td>
+                        <td>{{obj.coursename}}</td>
+                        <td>{{obj.faculty}}</td>
+                        <td>{{obj.event_date}}</td>
+                        <td>{{obj.event_time}}</td>
+                        <td>{{obj.demotype}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+{% endblock admin %}

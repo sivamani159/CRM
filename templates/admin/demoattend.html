@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+
+{% block admin %}
+    <center>
+        <h1 class="text-center alert alert-danger">Demo Attended Students</h1>
+
+        <form action="{% url 'demosearchurl' %}" method="post">
+            {% csrf_token %}
+            <input class="srch" type="text" name="word" placeholder="Search For Course"> 
+            <input type="submit" class="btn" value="search"> 
+        </form>
+
+        </form>
+    </center>
+    <table  id="tableRecords" border="3" height="100px" width="65%" align=center  style="margin-left: 10%;" >
+        <tr align="center" border="3" width="10%">
+            <th> Student Name </th><br>
+            <th> Email </th><br>
+            <th> Mobile </th>
+            <th> Course </th>
+        </tr>
+            {% for record in data %}
+            <tr align="center" >
+                <td>{{ record.StudentName }}</td>
+                <td>{{ record.Email }}</td>
+                <td>{{ record.Mobile }}</td>
+                <td>{{ record.course }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+{% endblock %}

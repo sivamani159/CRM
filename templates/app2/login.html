@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block b1 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265-300x212.jpg" alt=""
+                      style="width: 185px;" alt="logo">
+                  </div>
+  
+                  <form>
+                    <p>Please login to your account</p>
+                    <form id="accesspanel" action="{% url 'loginurl' %}" method="post">
+                        {% csrf_token %}
+                        <h1 id="litheader">LOGIN HERE!</h1>
+                        <div class="inset">
+                          <p>
+                            <input type="text" name="uname" id="email" placeholder="Username">
+                          </p>
+                          <p>
+                            <input type="password" name="pwd" id="password" placeholder="Password">
+                          </p>
+                          <div style="text-align: center;">
+                            <div class="checkboxouter">
+                              <input type="checkbox" name="rememberme" id="remember" value="Remember">
+                              <label class="checkbox"></label>
+                            </div>
+                            <label for="remember">Remember me</label>
+                          </div>
+                        <a href=""><input class="loginLoginValue" type="hidden" name="service" value="login" /></a>
+                        </div>
+                        <p class="p-container">
+                          <input type="submit" name="Login" id="go" value="Authorize">
+                        </p>
+                      </form>
+  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Don't have an account?</p>
+                      <button type="button" class="btn btn-outline-danger">Create new</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">VCUBE SOFTWARE SOLUTIONS</h4>
+                  <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock b1 %}

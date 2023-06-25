@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block b1 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<style>
+    .cen{
+        position: relative;
+        margin-top: 60px;
+        margin-left: 300px;
+    }
+</style>
+    <div class="cen">
+        <div class="offset-4 col-md-4 offset-4">
+            <div class="form">
+                <h2>Enroll Now</h2>
+                <form action="{% url 'enrollurl' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Enter Name Here">
+                    <input type="email" name="email" placeholder="Enter Email Here">
+                    <input type="tel" name="phonenumber" placeholder="Mobile Number" pattern="[0-9]{10}" required> <br><br>
+                    <label class="placeholder" for="wpforms-3590-field_5">Course Looking For</label>
+                    <select id="wpforms-3590-field_5" class="wpforms-field-medium" name="course" placeholder="Course are you looking for"><option value="" class="placeholder" disabled="" selected="selected">Digital Marketing</option><option value="Java full stack">Java full stack</option><option value="Angular js">Angular js</option><option value="Python">Python</option><option value="Python full stack">Python full stack</option>
+                        <option value="Power BI">Power BI</option><option value="Azure developement">Azure developement</option><option value="AWS Devops">AWS Devops</option><option value="ReactsJS">ReactsJS</option><option value="Angular">Angular</option><option value="Appium">Appium</option><option value="Machine Learning">Machine Learning</option><option value="API Testing ">API Testing </option><option value="DJANGO">DJANGO</option>
+                        <option value="BI COURSE">BI COURSE</option><option value="Full stack QA">Full stack QA</option>
+                        <option value="RPA UI Path">RPA UI Path</option><option value="CYpress.io">CYpress.io</option><option value="Mule Soft ">Mule Soft </option><option value="Digital Marketing">Digital Marketing</option><option value="SQL Server">SQL Server</option>
+                        <option value="Tableau">Tableau</option><option value="SQL Azure">SQL Azure</option><option value="Wed Design">Wed Design</option><option value="Protroctor">Protroctor</option><option value="Microsoft Azure">Microsoft Azure</option><option value="Azure Data Enginner">Azure Data Enginner</option>
+                        <option value="MERN DEVELOPEMENT">MERN DEVELOPEMENT</option><option value="MEAN STACK">MEAN STACK</option><option value="DEVOPS">DEVOPS</option><option value="Selenium with java">Selenium with java</option><option value="Testing tools">Testing tools</option><option value="Selenium with python">Selenium with python</option><option value="Azure Data Factory">Azure Data Factory</option></select>
+                    <input type="submit" class="btnn" value="SUBMIT">
+                </form>
+            </div>
+        
+    </div>
+{% endblock b1 %}

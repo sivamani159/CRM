@@ -1,0 +1,573 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<head>
+    <title>Webpage Design</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .main{
+            width: 100%;
+            background: linear-gradient(to top, rgba(78, 163, 232, 0.5)50%,rgba(78, 163, 232,0.5)50%), url();
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .navbar{
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+        }
+
+        .icon{
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        .logo{
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left: 20px;
+            float: left;
+            padding-top: 10px;
+            margin-top: 5px
+        }
+
+        .menu{
+            width: 410px;
+            float: right;
+            height: 70px;
+        }
+
+        ul{
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul li{
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+
+        ul li a{
+            text-decoration: none;
+            color: #010419;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+
+        ul li a:hover{
+            color: #e35407;
+        }
+
+        .search{
+            width: 330px;
+            float: left;
+            margin-left: 270px;
+        }
+
+        .srch{
+            font-family: 'Times New Roman';
+            width: 200px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 13px;
+            color: #0e0606;
+            border-right: none;
+            font-size: 16px;
+            float: left;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .btn{
+            width: 100px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+        .nun{
+            width: 200px;
+            height: 50px;
+            background: #f46206;
+            border: 2px solid #1a0660;
+            margin-top: 13px;
+            color: #e9e8ea;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: .4s ease;
+        }
+        .btn:hover{
+            color: #000;
+        }
+
+        .btn:focus{
+            outline: none;
+        }
+
+        .srch:focus{
+            outline: none;
+        }
+
+        .content{
+            width: 1200px;
+            height: auto;
+            margin: auto;
+            color: #323611;
+            position: relative;
+        }
+
+        .content .par{
+            padding-left: 20px;
+            padding-bottom: 25px;
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+
+        .content h1{
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            padding-left: 20px;
+            margin-top: 9%;
+            letter-spacing: 2px;
+        }
+
+        .content .cn{
+            width: 160px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .4s ease;
+            
+        }
+
+        .content .cn a{
+            text-decoration: none;
+            color: #000;
+            transition: .3s ease;
+        }
+
+        .cn:hover{
+            background-color: #fff;
+        }
+
+        .content span{
+            color: #ff7200;
+            font-size: 65px
+        }
+
+        .form{
+            width: 330px;
+            height: 380px;
+            background: linear-gradient(to top, rgba(2, 15, 23, 0.8)50%,rgba(2, 15, 23, 0.8)50%);
+            position: absolute;
+            top: -20px;
+            left: 870px;
+            transform: translate(0%,-5%);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .form h2{
+            width: 220px;
+            font-family: sans-serif;
+            text-align: center;
+            color: #ff7200;
+            font-size: 22px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 2px;
+            padding: 8px;
+        }
+
+        .form input{
+            width: 240px;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            font-family: sans-serif;
+        }
+
+        .form input:focus{
+            outline: none;
+        }
+
+        ::placeholder{
+            color: #e0e2e7;
+            font-family: Arial;
+        }
+        .placeholder{
+            color: #eff2f3;
+            font-family: Arial;
+        }
+
+        .btnn{
+            width: 240px;
+            height: 40px;
+            background: #09d709;
+            border: none;
+            margin-top: 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #a91010;
+            transition: 0.4s ease;
+        }
+        .btnn:hover{
+            background: #fff;
+            color: #ff7200;
+        }
+        .btnn a{
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+        .form .link{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .form .link a{
+            text-decoration: none;
+            color: #ff7200;
+        }
+        .liw{
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .icons a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .icons ion-icon{
+            color: #fff;
+            font-size: 30px;
+            padding-left: 14px;
+            padding-top: 5px;
+            transition: 0.3s ease;
+        }
+        .icons ion-icon:hover{
+            color: #ff7200;
+        }
+        .navbar{
+            width: 1200px;
+            height: 125px;
+            margin: auto;
+            
+        }
+        .navbar{
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+           
+            color: #09d709;
+        }
+        .tp4{
+        width: 100%;
+        height: 400px;
+        background-color:rgb(3, 26, 53);
+        }
+    </style>
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <div class="icon">
+                    <img src="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265-300x212.jpg" alt="" width="187px" height="132px">
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="{% url 'courseurl' %}">COURSES</a></li>
+                        <li><a href="{% url 'demoshowurl' %}">DEMOS</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                        <li><a href="{% url 'loginurl' %}">LOGIN</a></li>
+                        <li> <a href="{% url 'enrollurl' %}"> <button class="nun">Enroll Now</button></a></li>
+                    </ul>
+                </div>
+
+                <div class="search">
+                    <form action="{% url 'coursessearchurl' %}" method="post">
+                        {% csrf_token %}
+                        <input class="srch" type="text" name="word" placeholder="Search For Course"> 
+                        <input type="submit" class="btn" value="search"> 
+                    </form>
+                </div>
+
+            </div> 
+            <div class="content">
+                <h1><span>Vcube software solutions <br> pvt ltd.</span></h1>
+                <p class="par">V CUBE SOFTWARE SOLUTIONS PVT.LTD is one of the <br>
+                    Best software Training institutes,<br> 
+                    Can Assist you to Reach Your Goal with IT Courses
+                </p>
+                <a href="{% url 'courseurl' %}"><button class="cn">View all Courses</button></a>
+
+                <div class="form">
+                    <h2>Enroll Now</h2>
+                    <form action="{% url 'enrollurl' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="name" placeholder="Enter Name Here">
+                        <input type="email" name="email" placeholder="Enter Email Here">
+                        <input type="tel" name="phonenumber" placeholder="Mobile Number" pattern="[0-9]{10}" required> <br><br>
+                        <select  name="course" placeholder="Course are you looking for"><option value="Java full stack">Java full stack</option>
+                            <option value="Python">Python</option><option value="Python full stack">Python full stack</option>
+                            <option value="AWS Devops">AWS Devops</option>
+                          <option value="API Testing ">API Testing </option><option value="DJANGO">DJANGO</option>
+                           <option value="Mule Soft ">Mule Soft </option>
+                           <option value="Wed Design">Wed Design</option>
+                            <option value="DEVOPS">DEVOPS</option><option value="Selenium with java">Selenium with java</option>
+                            <option value="Selenium with python">Selenium with python</option><option value="Azure Data Factory">Azure Data Factory</option></select>
+                        <input type="submit" class="btnn"  value="SUBMIT">
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </body>
+    <section id="scroll">
+        <div class="container">
+            <div class="row gx-3 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="https://d1fdloi71mui9q.cloudfront.net/lp3RTh22TimXgezp93dX_0001-31514908032.png" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4"> What we do in Vcube...</h2>
+                        <p>
+                           
+                            V CUBE Software Solutions Pvt.Ltd offers you the greatest available serivces which are decsribed below
+                            
+                            Live classes
+                            
+                            24/7 Access 
+                            
+                            Every projects
+                            
+                            One on one mentorship 
+                            
+                            Guest lectures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content section 2-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="https://www.vcubesoftsolutions.com/wp-content/uploads/2021/11/download-1536x1086.jpg" alt="..." /></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <h2 class="display-4">What we're about?</h2>
+                        <p>
+                            V CUBE SOFTWARE SOLUTIONS PVT.LTD, is an institute that caters to the needs of students, businessmen and freelancers wanting to learn, improve, explore and soar in their careers. Our corporate office is located in Kukatpally, Hyderabad, India and our training centres are in Kukatpally and Ameerpet, Hyderabad, India. V CUBE Software Solutions Pvt.Ltd offers online information  technology courses, online computer programming classes, and starting information technology courses. Take advantage of both online and offline resources. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content section 3-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="https://www.vcubesoftsolutions.com/wp-content/uploads/2021/11/training.jpg" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4"> OUR SERVICE</h2>
+                        <p>
+                           
+                            We offer high-quality training from industry experts in a variety of technologies to suit candidates with various academic backgrounds.The training is appropriate for all aspiring IT professionals and is provided by an experienced faculty team.We have seasoned instructors who can help professionals improve their technology skills for day-to-day tasks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                        <h3>In-Time Course Completion</h3>
+                        <p class="lead mb-0">Committed to pure professionalism we make sure that the course program gets completed the scheduled time. Equal priority will be given for both theoretical & practical sessions​</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                        <h3>Free Demo Sessions</h3>
+                        <p class="lead mb-0">Free Demo Sessions (Online/Offline) by our qualified domain experts will help the aspirants to get a better idea about the course program & can get their doubts clarified by the experts</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                        <h3>Blended Training Approach</h3>
+                        <p class="lead mb-0">Exposure towards real-time industry training by our trusted experienced trainers will help you become a complete dominant professional in your desired profession.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials-->
+    <section class="testimonials text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Our Team</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
+                        <h5>Mr.Srinivas</h5>
+                        <p class="font-weight-light mb-0">(Sr. System Analyst) 13+ Yrs Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
+                        <h5>Mr.P V R</h5>
+                        <p class="font-weight-light mb-0">(Sr. Project Manager)
+                            Co Founder of V CUBE Software Solutions Pvt.Ltd
+                            28+ yrs Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+                        <h5>Mr.Madhukar</h5>
+                        <p class="font-weight-light mb-0">(DevOps & Cloud Architect)
+                            13+ Yrs Experience
+                            
+                            Mr.Manohar
+                            ( Sr. Test Lead )
+                            </p>
+                    </div>
+                </div>
+          
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+                        <h5>Mr.Vishwanath</h5>
+                        <p class="font-weight-light mb-0">(Technical Lead)
+                            18+ Yrs Experience
+                        
+                            </p>
+                    </div>
+                </div> 
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+                        <h5>Mr.Manohar</h5>
+                        <p class="font-weight-light mb-0">( Sr. Test Lead )
+                            13+ Yrs Experience
+                        
+                        
+                            </p>
+                    </div>
+                </div> 
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+                        <h5>Mr.Suresh</h5>
+                        <p class="font-weight-light mb-0">(Java Expert)
+                            8+ Yrs Experience
+                        
+                            </p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section><br><br>
+    <div class="row" style="background-color: #6b6b92;width: 100%;height: 450px;">
+        <div class="col-sm-4">
+            <ol style="font-size:x-large;color: #d4f518;position: relative;margin-left: 80px;margin-top: 30px;">
+                <ol> Home</ol> 
+                <ol>About</ol> 
+                <ol>Courses</ol> 
+                <ol> Blog</ol> 
+                <ol>Privacy Policy</ol> 
+                <ol>Interview Questions</ol> 
+                <ol>Contact</ol> 
+            </ol>
+        </div>
+        <div class="col-sm-4" style="font-size: x-large;  color: aliceblue;">
+        
+            <ol> V CUBE Software Solutions Pvt. </ol>
+            <ol> Ltd. second floor,above </ol>
+            <ol> Raymond’s clothing store,</ol>
+            <ol> KPHB Phase 1 Kukatpally, Hyderabad, </ol>
+            <ol>Telangana 500072</ol>
+            <ol> Contact us :</ol>
+            <ol>+917675070124/ +919059456742</ol> 
+        </div>
+        <div class="col-sm-4">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.MVZVYxnHQU0iQBiRM9t5GgHaFP&pid=Api&P=0&h=180" alt="" width="400px" height="400px " style="margin-top: 20px; margin-right: 15px;">
+        </div>
+        
+    </div>
+        
+    <!-- Footer-->
+    <footer class="py-5 bg-black">
+        <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
+</html>
+
+
+

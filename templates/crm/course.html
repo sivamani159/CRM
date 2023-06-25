@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block b1 %}
+{% load static %}
+<title>courses</title>
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<div class="wrapper">
+        <section id="products">
+            <div class="container py-3">
+                <div class="row">
+                    {% for obj in data %}
+                    <div class="col-lg-3 col-md-10 col-sm-10" style="margin-bottom: 50px; ">
+                        <a href="{% url 'coursedetailsurl' obj.cname %}"><div class="card" style="background-color: rgb(229, 231, 168);"> <img class="card-img-top" src="{{obj.image.url}}">
+                            <div class="card-body">
+                                <h6 class="font-weight-bold pt-1">{{obj.cname}}</h6>
+                            </div>
+                        </div></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock b1 %}

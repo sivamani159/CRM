@@ -1,0 +1,58 @@
+{% extends 'adminbase.html' %}
+{% block admin %}
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <center>
+        <div class="search">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input class="srch" type="text" name="word" placeholder="Search Course wise"> 
+                <input type="submit" class="btn btn-info" value="search"> 
+            </form>
+        </div>
+    </center>
+    <div class="row">
+        <!-- <div class="col-sm-4">
+            <h3 class="text-center alert alert-warning">MODELFORM</h3>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="container">
+                    {{form.as_p}}
+                   <input type="submit"  class="btn btn alert-success" value="save">
+                </div>
+            </form>
+            <div class="alert-success">
+                {% for message in messages %}
+                    <strong>{{message}}</strong>
+                {% endfor %}
+            </div>
+        </div> -->
+        <div class="col-sm-7 offset-1">
+            <h3 class="text-center alerrt alert-success">Enrolled students</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>PhoneNumber</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in data %}
+                    <tr>
+                        <td>{{obj.name}}</td>
+                        <td>{{obj.email}}</td>
+                        <td>{{obj.phone_number}}</td>
+                        <td>{{obj.course}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+{% endblock admin %}

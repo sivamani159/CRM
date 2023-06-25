@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+	<style>
+		body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #a593d1;
+	color: #a7a557;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav ul li {
+	margin: 0 10px;
+}
+
+nav ul li a {
+	color: #c11212;
+	text-decoration: none;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.banner {
+	background-color: #6db159;
+	padding: 5px;
+	text-align: center;
+}
+
+.products {
+	margin-top: 50px;
+}
+
+.products h2 {
+	margin-bottom: 30px;
+}
+
+.products ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.products li {
+	flex-basis: calc(28.33% - 20px);
+	margin-right: 30px;
+	margin-bottom: 20px;
+	background-color: #43767f;
+	padding: 20px;
+	text-align: center;
+}
+
+.products li img {
+	max-width: 70%;
+}
+
+.products li h3 {
+	margin-top: 10px;
+}
+
+.products li p {
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px 20px;
+	text-align: center;
+}
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+.dropdown {
+      position: relative;
+      display: inline-block;
+	  color: #c11212;
+}
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #0ef3f3;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-content a {
+      color: rgb(245, 80, 9);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #d7b612;
+    }
+
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<a href="#" style="color: #de6311;"><h3>Hello  {{user.username}}</h3></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="{% url 'adminhomeurl' %}">Home</a></li>
+				<li><a href="{% url 'enrolledlisturl' %}">EnrolledStudents</a></li>
+				<li><div class="dropdown">
+					<p class="dropbtn">Demo-Coustomization^</p>
+					<div class="dropdown-content">
+					  <a href="{% url 'adddemourl' %}">AddDemo</a>
+					  <a href="{% url 'demoattendstudentsurl' %}">demoattended-students</a>
+					</div>
+				  </div></li>
+				<li><a href="{% url 'userregisterurl' %}">RegisteredStudents</a></li>
+				<li><a href="{% url 'logouturl' %}">LOGOUT</a></li> 
+			</ul>
+		</nav>
+	</header>
+    <main>
+        <section class="banner">
+            <div style="float: left;"><li class="icon"><img src="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265-300x212.jpg" alt="" width="150px" height="102px"></li></div>
+			<h1>Welcome to Admin Panel</h1>
+		</section>
+    </main>
+    {% block admin %}
+    {% endblock admin %}

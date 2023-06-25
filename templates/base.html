@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f16215;
+}
+.nun{
+    width: 200px;
+    height: 50px;
+    background: #9d6f53;
+    border: 2px solid #1a0660;
+    margin-top: 13px;
+    color: #e9e8ea;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: .4s ease;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+</style>
+</head>
+<body>
+
+<ul>
+    <li class="icon"><img src="https://www.vcubesoftsolutions.com/wp-content/uploads/2020/10/V-CUBE-Logo-4-scaled-e1636039304265-300x212.jpg" alt="" width="150px" height="102px"></li>
+    <li><a href="{% url 'home' %}">HOME</a></li>
+    <li><a href="#">ABOUT</a></li>
+    <li><a href="{% url 'courseurl' %}">COURSES</a></li>
+    <li><a href="{% url 'demoshowurl' %}">DEMOS</a></li>
+    <li><a href="#">CONTACT</a></li>
+    <li><a href="{% url 'loginurl' %}">LOGIN</a></li>
+    <li style="float: right;"><a href="{% url 'enrollurl' %}"><button class="nun">Enroll Now</button></a></li>
+</ul>
+{% block b1 %}
+{% endblock b1 %}
+
+</body>
+</html>

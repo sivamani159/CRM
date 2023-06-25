@@ -1,0 +1,68 @@
+ <!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<div class="main-agileinfo">
+            <h1 style="color: orange;">Student Registration</h1>
+			<div class="agileits-top">
+				<form action="{% url 'userregisterurl' %}" method="post">
+                    {% csrf_token %}
+					<p class="text w3lpass">{{form.username.label}}{{form.username}}</p><br>
+					<p class="text w3lpass">{{form.email.label}}{{form.email}}</p><br>
+					<p class="text w3lpass">{{form.password1.label}}{{form.password1}}</p><br>
+					<p class="text w3lpass">{{form.password2.label}}{{form.password2}}</p><br>
+					<input type="submit" value="Register">
+				</form>
+				
+                {% if messages %}
+                    {% for message in messages %}
+                      {% if message.tags == 'success' %}
+                        <p style="color: green;">{{ message }}</p>
+                      {% else %}
+                        <p style="color:rgb(255, 0, 0);">{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+				<p>Don't have an Account? <a href="{% url 'loginurl' %}"> Login Now!</a></p>
+			</div>
+		</div>
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>
